@@ -1,0 +1,83 @@
+  [1m[35m (93.0ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  [1m[35m (51.8ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+Started GET "/" for 212.8.253.138 at 2024-02-14 04:22:15 +0000
+Cannot render console from 212.8.253.138! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 276.3ms | Allocations: 91466)
+Completed 200 OK in 296ms (Views: 282.9ms | ActiveRecord: 0.0ms | Allocations: 98749)
+
+
+Started GET "/" for 212.8.253.138 at 2024-02-14 04:28:37 +0000
+Cannot render console from 212.8.253.138! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 274)
+  Rendered layout layouts/application.html.erb (Duration: 58.6ms | Allocations: 36092)
+Completed 200 OK in 69ms (Views: 62.3ms | ActiveRecord: 0.0ms | Allocations: 40426)
+
+
+Started GET "/styles.css" for 212.8.253.138 at 2024-02-14 04:28:37 +0000
+Cannot render console from 212.8.253.138! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/styles.css"):
+  
+Started GET "/" for 212.8.253.138 at 2024-02-14 04:37:47 +0000
+Cannot render console from 212.8.253.138! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 274)
+  Rendered layout layouts/application.html.erb (Duration: 51.7ms | Allocations: 35077)
+Completed 200 OK in 63ms (Views: 55.4ms | ActiveRecord: 0.0ms | Allocations: 39411)
+
+
+Started GET "/" for 212.8.253.138 at 2024-02-14 04:42:52 +0000
+Cannot render console from 212.8.253.138! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 274)
+  Rendered layout layouts/application.html.erb (Duration: 49.1ms | Allocations: 35713)
+Completed 200 OK in 58ms (Views: 52.5ms | ActiveRecord: 0.0ms | Allocations: 40047)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-02-14 04:49:58.209283', '2024-02-14 04:49:58.209287') RETURNING "key"[0m
+Migrating to CreateProducts (20240214044933)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240214044933') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColorToProducts (20240214044946)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "products" ADD "color" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240214044946') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (2.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at", "color") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Smartphone"], ["description", "A powerful smartphone with advanced features."], ["price", "499.99"], ["created_at", "2024-02-14 04:55:09.732709"], ["updated_at", "2024-02-14 04:55:09.732709"], ["color", nil]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at", "color") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Laptop"], ["description", "A high-performance laptop for work and entertainment."], ["price", "999.99"], ["created_at", "2024-02-14 04:55:09.739600"], ["updated_at", "2024-02-14 04:55:09.739600"], ["color", nil]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at", "color") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Headphones"], ["description", "Premium wireless headphones with noise-canceling technology."], ["price", "199.99"], ["created_at", "2024-02-14 04:55:09.744100"], ["updated_at", "2024-02-14 04:55:09.744100"], ["color", nil]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (1.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "created_at", "updated_at", "color") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Smartwatch"], ["description", "A sleek smartwatch with fitness tracking and notifications."], ["price", "299.99"], ["created_at", "2024-02-14 04:55:09.748409"], ["updated_at", "2024-02-14 04:55:09.748409"], ["color", nil]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]

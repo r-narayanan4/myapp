@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px; /* Adjust margin as needed */
+}
+
+.about-me {
+  width: 60%; /* Set the width of the about-me section */
+  margin: 0 auto; /* Center the about-me section horizontally */
+  background-color: #f4f4f4; /* Background color of the box */
+  padding: 20px; /* Add some padding */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.skills {
+  margin-top: 20px; /* Add some space between about-me and skills */
+}
+
+.skills h3 {
+  margin-bottom: 10px; /* Add space below the skills heading */
+  color: #333; /* Text color */
+}
+
+.skills ul {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0;
+}
+
+.skills ul li {
+  margin-bottom: 5px; /* Add space between each skill */
+  background-color: #f0f0f0; /* Background color of each skill */
+  padding: 5px 10px; /* Add padding */
+  border-radius: 5px; /* Add rounded corners */
+}
+
+.skills ul li:hover {
+  background-color: #ddd; /* Background color when hovering over each skill */
+}
+
