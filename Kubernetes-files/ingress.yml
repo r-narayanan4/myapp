@@ -4,14 +4,14 @@ metadata:
   name: myruby-ingress
 spec:
   rules:
-  - host: myruby.app
+  - host: rln-world.info
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: myruby-service  # Use the correct backend service name
+            name: myruby-service
             port:
               number: 80
 

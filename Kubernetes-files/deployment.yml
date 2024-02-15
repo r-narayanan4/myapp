@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myruby
-        image: rln410/myruby:1
+        image: rln410/ruby-world:rln
         ports:
         - containerPort: 3000
         env:
