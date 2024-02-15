@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  RAILS_ENV: development
+  DATABASE_URL: postgres
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: myapp_development
+

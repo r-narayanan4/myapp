@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myruby-ingress
+spec:
+  rules:
+  - host: myruby.app
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: myruby-service  # Use the correct backend service name
+            port:
+              number: 80
+

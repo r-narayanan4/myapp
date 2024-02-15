@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myruby-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myruby           # Label for the pods
+  template:
+    metadata:
+      labels:
+        app: myruby         # Label for the pods
+    spec:
+      containers:
+      - name: myruby
+        image: rln410/myruby:1
+        ports:
+        - containerPort: 3000
+        env:
+          - name: RAILS_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: app-config
+                key: RAILS_ENV
+          - name: DATABASE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: app-config
+                key: DATABASE_URL
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: postgres_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: postgres_password
+

@@ -7,7 +7,7 @@ version: "3.3"
 # is another service ("database").
 services:
 
-  database:
+  postgres:
     # Use the postgres 11.5 base image for this container.
     image: postgres:11.5
 
@@ -54,19 +54,23 @@ services:
       - "3000:3000"
 
     # Specify that this container depends on the other
-    # container which we've called "database".
+    # container which we've called "postgres".
     depends_on:
-      - database
+      - postgres
 
     # Specify the values of the environment variables
     # used in this container.
+    
     environment:
-      RAILS_ENV: development
-      DATABASE_NAME: myapp_development
-      DATABASE_USER: myapp_development
-      DATABASE_PASSWORD: 
-      DATABASE_HOST: database
+      - RAILS_ENV=development
+      - DATABASE_URL=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=myapp_development
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=myrln
+    
 
 # Declare the volumes that our application uses.
 volumes:
   db_data:
+
