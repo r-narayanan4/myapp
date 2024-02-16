@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: myruby-service
+  namespace: ruby-rails  # Specify the namespace here
 spec:
   selector:
     app: myruby          # Selector for the Service to match pods with label 'app: myruby'

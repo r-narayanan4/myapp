@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myruby-ingress
+  namespace: ruby-rails  # Specify the namespace here
 spec:
   rules:
   - host: rln-world.info
