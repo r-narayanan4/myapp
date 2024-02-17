@@ -1,0 +1,61 @@
+# Service definition for the Ruby application
+apiVersion: v1
+kind: Service
+metadata:
+  name: myruby-service
+  namespace: ruby-rails
+spec:
+  selector:
+    app: myruby
+  ports:
+    - protocol: TCP
+      port: 80        # Exposes port 80 on the service
+      targetPort: 3000   # Forwards traffic to port 3000 on the pods
+  type: ClusterIP
+
+---
+# Deployment configuration for the Ruby application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myruby-deployment
+  namespace: ruby-rails
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myruby
+  template:
+    metadata:
+      labels:
+        app: myruby
+    spec:
+      containers:
+        - name: myruby
+          image: rln410/ruby-world:rln
+          ports:
+            - containerPort: 3000   # Listens on port 3000 inside the container
+          env:
+            # Environment variables for the Ruby application
+            - name: RAILS_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: RAILS_ENV
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DATABASE_URL
+            # Secrets for PostgreSQL connection
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres_user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres_password
+

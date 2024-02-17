@@ -1,3 +1,19 @@
+# Service definition for PostgreSQL
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: ruby-rails  # Specify the namespace here
+spec:
+  selector:
+    app: postgres
+  ports:
+  - protocol: TCP
+    port: 5432            # Exposes port 5432 on the service
+    targetPort: 5432      # Forwards traffic to port 5432 on the pods
+
+---
+# StatefulSet definition for PostgreSQL
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -34,7 +50,7 @@ spec:
                 name: postgres-secret
                 key: postgres_password
         ports:
-        - containerPort: 5432
+        - containerPort: 5432    # Listens on port 5432 inside the container
           name: postgres
         volumeMounts:
         - name: postgres-storage
@@ -47,17 +63,4 @@ spec:
       resources:
         requests:
           storage: 1Gi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres
-  namespace: ruby-rails  # Specify the namespace here
-spec:
-  selector:
-    app: postgres
-  ports:
-  - protocol: TCP
-    port: 5432
-    targetPort: 5432
 
