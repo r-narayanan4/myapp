@@ -1,12 +1,15 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: build-and-push-pipeline
+  name: dashboard-pipeline
 spec:
   tasks:
+    - name: clone-repo
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: https://github.com/r-narayanan4/myapp.git
     - name: build-and-push
       taskRef:
         name: build-and-push
-      params:
-        - name: repo-url
-          value: https://github.com/r-narayanan4/myapp.git

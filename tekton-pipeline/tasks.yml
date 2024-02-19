@@ -1,6 +1,21 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
+  name: git-clone
+spec:
+  params:
+    - name: url
+      type: string
+  steps:
+    - name: git-clone
+      image: alpine/git
+      script: |
+        git clone $(inputs.params.url) /workspace/source
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
   name: build-and-push
 spec:
   params:
