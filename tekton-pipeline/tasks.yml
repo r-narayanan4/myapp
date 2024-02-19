@@ -18,4 +18,4 @@ spec:
         - name: DOCKER_CONFIG
           value: /tekton/home/.docker
       script: |
-        /kaniko/executor --dockerfile=/workspace/source/Dockerfile --destination=rln410/<your-image-name>:latest
+        /kaniko/executor --dockerfile=/workspace/source/Dockerfile --destination=rln410/my-ruby-rails-app:latest
