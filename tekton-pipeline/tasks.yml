@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-and-push
+spec:
+  params:
+    - name: repo-url
+      type: string
+  steps:
+    - name: git-source
+      image: alpine/git
+      script: |
+        git clone $(inputs.params.repo-url) /workspace/source
+    - name: build-and-push
+      image: gcr.io/kaniko-project/executor:latest
+      workingDir: /workspace/source
+      env:
+        - name: DOCKER_CONFIG
+          value: /tekton/home/.docker
+      script: |
+        /kaniko/executor --dockerfile=/workspace/source/Dockerfile --destination=rln410/<your-image-name>:latest
